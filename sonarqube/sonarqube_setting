@@ -1,0 +1,23 @@
+bash
+$ sysctl -w vm.max_map_count=262144
+$ sysctl -w fs.file-max=65536
+$ ulimit -n 65536
+$ ulimit -u 4096
+
+permanent
+$ mkdir -p /app/sonarqube/conf
+$ mkdir -p /app/sonarqube/data
+$ mkdir -p /app/sonarqube/logs
+$ mkdir -p /app/sonarqube/extensions
+$ mkdir -p /app/sonarqube/postgres
+$ chmod 777 /app/sonarqube -R
+
+#vi sysctl
+/etc/sysctl.conf
+vm.max_map_count=262144
+fs.file-max=65536
+
+#apply
+reboot
+or
+sysctl -p
